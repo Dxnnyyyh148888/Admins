@@ -1,129 +1,65 @@
-print("hi")
-
 local ScreenGui1 = Instance.new("ScreenGui") 
 ScreenGui1.Parent = game.Players.LocalPlayer.PlayerGui
 
 local Frame1 = Instance.new("Frame") 
 Frame1.Parent = ScreenGui1
-Frame1.BackgroundColor3 = Color3.fromRGB(22,29,50)
-Frame1.Position = UDim2.new(0.25,0,0.25)
-Frame1.Size = UDim2.new(0.5,0,0.5)
+Frame1.BackgroundColor3 = Color3.fromRGB(22, 29, 50)
+Frame1.Position = UDim2.new(0.25, 0, 0.25, 0)
+Frame1.Size = UDim2.new(0.5, 0, 0.5, 0)
 
 local TextLabel1 = Instance.new("TextLabel") 
-TextLabel1.BackgroundColor3 = Color3.fromRGB(121,181,181)
-TextLabel1.Size = UDim2.new(1,0,0.15)
-TextLabel1.Text = "Wich One?"
-TextLabel1.TextColor3 = Color3.fromRGB(229,228,223)
+TextLabel1.BackgroundColor3 = Color3.fromRGB(121, 181, 181)
+TextLabel1.Size = UDim2.new(1, 0, 0.15, 0)
+TextLabel1.Text = "Which One?"
+TextLabel1.TextColor3 = Color3.fromRGB(229, 228, 223)
 TextLabel1.Font = Enum.Font.SourceSans
 TextLabel1.TextSize = 25
 TextLabel1.Parent = Frame1
 
-local TextButton1 = Instance.new("TextButton") 
-TextButton1.Parent = Frame1
-TextButton1.BackgroundColor3 = Color3.fromRGB(92,83,157)
-TextButton1.Size = UDim2.new(0.3,0,0.2)
-TextButton1.Position = UDim2.new(0.025,0,0.2)
-TextButton1.TextSize = 28
-TextButton1.TextColor3 = Color3.fromRGB(255,255,255)
-
-local UICorner1 = Instance.new("UICorner") 
-UICorner1.Parent = TextButton1
-UICorner1.CornerRadius = UDim.new(0.3,0)
-
-local TextLabel2 = Instance.new("TextLabel") 
-TextLabel2.Parent = Frame1
-TextLabel2.BackgroundColor3 = Color3.fromRGB(52,43,117)
-TextLabel2.Position = UDim2.new(0.025,0,0.35)
-TextLabel2.Size = UDim2.new(0.3,0,0.4)
-TextLabel2.TextColor3 = Color3.fromRGB(159,195,231)
-TextLabel2.TextScaled = true
-
-local UICorner2 = Instance.new("UICorner") 
-UICorner2.Parent = TextLabel2
-UICorner2.CornerRadius = UDim.new(0.1,0)
-
-local TextButton21 = Instance.new("TextButton") 
-TextButton21.Parent = Frame1
-TextButton21.BackgroundColor3 = Color3.fromRGB(92,83,157)
-TextButton21.Size = UDim2.new(0.3,0,0.2)
-TextButton21.Position = UDim2.new(0.35,0,0.2)
-TextButton21.TextSize = 28
-TextButton21.TextColor3 = Color3.fromRGB(255,255,255)
-
-local UICorner1 = Instance.new("UICorner") 
-UICorner1.Parent = TextButton21
-UICorner1.CornerRadius = UDim.new(0.3,0)
-
-local TextLabel22 = Instance.new("TextLabel") 
-TextLabel22.Parent = Frame1
-TextLabel22.BackgroundColor3 = Color3.fromRGB(52,43,117)
-TextLabel22.Position = UDim2.new(0.35,0,0.35)
-TextLabel22.Size = UDim2.new(0.3,0,0.4)
-TextLabel22.TextColor3 = Color3.fromRGB(159,195,231)
-TextLabel22.TextScaled = true
-
-local UICorner2 = Instance.new("UICorner") 
-UICorner2.Parent = TextLabel22
-UICorner2.CornerRadius = UDim.new(0.1,0)
-
-local TextButton31 = Instance.new("TextButton") 
-TextButton31.Parent = Frame1
-TextButton31.BackgroundColor3 = Color3.fromRGB(92,83,157)
-TextButton31.Size = UDim2.new(0.3,0,0.2)
-TextButton31.Position = UDim2.new(0.67,0,0.2)
-TextButton31.TextSize = 28
-TextButton31.TextColor3 = Color3.fromRGB(255,255,255)
-
-local UICorner1 = Instance.new("UICorner") 
-UICorner1.Parent = TextButton31
-UICorner1.CornerRadius = UDim.new(0.3,0)
-
-local TextLabel32 = Instance.new("TextLabel") 
-TextLabel32.Parent = Frame1
-TextLabel32.BackgroundColor3 = Color3.fromRGB(52,43,117)
-TextLabel32.Position = UDim2.new(0.67,0,0.35)
-TextLabel32.Size = UDim2.new(0.3,0,0.4)
-TextLabel32.TextColor3 = Color3.fromRGB(159,195,231)
-TextLabel32.TextScaled = true
-
-local UICorner2 = Instance.new("UICorner") 
-UICorner2.Parent = TextLabel32
-UICorner2.CornerRadius = UDim.new(0.1,0)
-
 local TextButton2 = Instance.new("TextButton") 
 TextButton2.Parent = TextLabel1
-TextButton2.BackgroundColor3 = Color3.fromRGB(121,181,181)
-TextButton2.Size = UDim2.new(0.15,0,1)
+TextButton2.BackgroundColor3 = Color3.fromRGB(121, 181, 181)
+TextButton2.Size = UDim2.new(0.15, 0, 1, 0)
 TextButton2.Text = "X"
 TextButton2.TextScaled = true
-TextButton2.TextColor3 = Color3.fromRGB(229,228,223)
+TextButton2.TextColor3 = Color3.fromRGB(229, 228, 223)
 
 TextButton2.MouseButton1Click:Connect(function()
-Frame1: Destroy()
+    Frame1:Destroy()
 end)
 
--- > Кастомизация <--
--- первая кнопка
-TextButton1.Text = "Infinite Yield"
-TextLabel2.Text = "500+ Commands, seven years of working!"
+local function createButton(parent, position, text, description, scriptUrl)
+    local button = Instance.new("TextButton")
+    button.Parent = parent
+    button.BackgroundColor3 = Color3.fromRGB(92, 83, 157)
+    button.Size = UDim2.new(0.3, 0, 0.2, 0)
+    button.Position = position
+    button.TextSize = 12
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Text = text
 
-TextButton1.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
+    local corner = Instance.new("UICorner")
+    corner.Parent = button
+    corner.CornerRadius = UDim.new(0.3, 0)
 
--- вторая кнопка
-TextButton21.Text = "Nameless Admin"
-TextLabel22.Text = "250+ Commands, Best Fling"
+    local label = Instance.new("TextLabel")
+    label.Parent = parent
+    label.BackgroundColor3 = Color3.fromRGB(52, 43, 117)
+    label.Position = position + UDim2.new(0, 0, 0.15, 0)
+    label.Size = UDim2.new(0.3, 0, 0.4, 0)
+    label.TextColor3 = Color3.fromRGB(159, 195, 231)
+    label.TextScaled = true
+    label.Text = description
 
-TextButton21.MouseButton1Click:Connect(function(),
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))();
-end)
+    local labelCorner = Instance.new("UICorner")
+    labelCorner.Parent = label
+    labelCorner.CornerRadius = UDim.new(0.1, 0)
 
-TextButton31.Text = "Reviz Admin"
-TextLabel32.Text = "120 Commands, Good At pc"
+    button.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet(scriptUrl))()
+    end)
+end
 
-TextButton31.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://pastebin.com/raw/FJc5yrBX"))()
-end)
-
-print("bye")
+createButton(Frame1, UDim2.new(0.025, 0, 0.2, 0), "Infinite Yield", "500+ Commands, seven years of working!", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+createButton(Frame1, UDim2.new(0.35, 0, 0.2, 0), "Nameless Admin", "250+ Commands, Best Fling", "https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua")
+createButton(Frame1, UDim2.new(0.67, 0, 0.2, 0), "Reviz Admin", "120 Commands, Good At PC", "https://pastebin.com/raw/FJc5yrBX")
